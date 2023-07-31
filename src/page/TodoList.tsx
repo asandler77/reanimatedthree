@@ -76,7 +76,7 @@ export const TodoList = (): ReactElement => {
             style={styles.input}
             onChangeText={onChangeText}
             value={input}
-            placeholder={'Add here the item ...'}
+            placeholder={'Write here the item ...'}
           />
           <TouchableOpacity onPress={deleteInput}>
             <Text
@@ -92,7 +92,7 @@ export const TodoList = (): ReactElement => {
         </View>
 
         <TouchableOpacity style={styles.button} onPress={onAddPress}>
-          <Text style={styles.buttonTitle}>Add</Text>
+          <Text style={styles.buttonTitle}>Add item to list</Text>
         </TouchableOpacity>
       </>
     </SafeAreaView>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   buttonTitle: {
     fontSize: 22,
     lineHeight: 36,
-    width: 150,
+    // width: 150,
     textAlign: 'center',
   },
   button: {
@@ -116,6 +116,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignSelf: 'center',
     minHeight: 40,
+    marginTop: 10,
+    width: 350
   },
   input: {
     height: 40,
