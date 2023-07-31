@@ -25,19 +25,8 @@ const Item = (props: Item) => {
     onDeletePress(id);
   };
   return (
-    <View
-      style={{
-        borderRadius: 8,
-        borderWidth: 1,
-        borderColor: 'blue',
-        paddingHorizontal: 2,
-        marginVertical: 2,
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        flex: 1,
-        width: 350,
-      }}>
-      <Text style={{fontSize: 20, marginLeft: 8}}>{item}</Text>
+    <View style={styles.itemContainer}>
+      <Text style={{fontSize: 26, lineHeight: 36, marginLeft: 8}}>{item}</Text>
       <TouchableOpacity style={{backgroundColor: 'red'}} onPress={onPress}>
         <Text style={{fontSize: 20, marginHorizontal: 8}}>x</Text>
       </TouchableOpacity>
@@ -54,6 +43,7 @@ export const TodoList = (): ReactElement => {
     const newItem: ListData = {id, item: input};
     const newList = [...list, newItem];
     setList(newList);
+    setInput('');
   };
 
   const onChangeText = (item: string) => {
@@ -65,11 +55,14 @@ export const TodoList = (): ReactElement => {
     setList(updatedList);
   };
 
+  const deleteInput = () => {
+    setInput('');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{fontSize: 60}}> רשימת קניות</Text>
+      <Text style={{fontSize: 60}}>Todo list</Text>
       <FlatList
-        style={{marginTop: 20}}
         data={list}
         renderItem={({item}) => (
           <Item listItem={item} onDeletePress={deleteItem} />
@@ -77,17 +70,31 @@ export const TodoList = (): ReactElement => {
         keyExtractor={item => item.id}
       />
 
-      <View style={{flexDirection: 'row'}}>
-        <Text style={styles.title}>Add item</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          value={input}
-        />
+      <>
+        <View style={{flexDirection: 'row', backgroundColor: '#f5f5dc'}}>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeText}
+            value={input}
+            placeholder={'Add here the item ...'}
+          />
+          <TouchableOpacity onPress={deleteInput}>
+            <Text
+              style={{
+                fontSize: 26,
+                lineHeight: 36,
+                opacity: 0.5,
+                paddingHorizontal: 8,
+              }}>
+              x
+            </Text>
+          </TouchableOpacity>
+        </View>
+
         <TouchableOpacity style={styles.button} onPress={onAddPress}>
           <Text style={styles.buttonTitle}>Add</Text>
         </TouchableOpacity>
-      </View>
+      </>
     </SafeAreaView>
   );
 };
@@ -100,6 +107,9 @@ const styles = StyleSheet.create({
   },
   buttonTitle: {
     fontSize: 22,
+    lineHeight: 36,
+    width: 150,
+    textAlign: 'center',
   },
   button: {
     backgroundColor: '#00ffff',
@@ -108,15 +118,26 @@ const styles = StyleSheet.create({
     minHeight: 40,
   },
   input: {
-    backgroundColor: '#f5f5dc',
-    minHeight: 40,
-    minWidth: 150,
-    fontSize: 22,
-    borderRadius: 8,
-    marginHorizontal: 4,
+    height: 40,
+    width: 350,
+    fontSize: 32,
+    lineHeight: 36,
   },
   title: {
     fontSize: 22,
     alignSelf: 'center',
+  },
+  addContainer: {flexDirection: 'row'},
+  itemContainer: {
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'blue',
+    paddingHorizontal: 2,
+    marginVertical: 2,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    flex: 1,
+    width: 350,
+    height: 36,
   },
 });
