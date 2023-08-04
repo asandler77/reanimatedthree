@@ -8,13 +8,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import Animated, {Easing} from 'react-native-reanimated';
 
-interface ListData {
+export interface ListData {
   id: string;
   item: string;
 }
 
-interface Item {
+export interface Item {
   listItem: ListData;
   onDeletePress: (item: string) => void;
 }
@@ -69,6 +70,7 @@ export const TodoList = (): ReactElement => {
         )}
         keyExtractor={item => item.id}
       />
+      {/*</AnimatedView>*/}
 
       <>
         <View style={{flexDirection: 'row', backgroundColor: '#f5f5dc'}}>
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     minHeight: 40,
     marginTop: 10,
-    width: 350
+    width: 350,
   },
   input: {
     height: 40,
@@ -131,14 +133,13 @@ const styles = StyleSheet.create({
   },
   addContainer: {flexDirection: 'row'},
   itemContainer: {
-    borderRadius: 8,
-    borderWidth: 1,
+    borderRadius: 20,
+    backgroundColor: 'beige',
     borderColor: 'blue',
     paddingHorizontal: 2,
     marginVertical: 2,
     justifyContent: 'space-between',
     flexDirection: 'row',
-    flex: 1,
     width: 350,
     height: 36,
   },

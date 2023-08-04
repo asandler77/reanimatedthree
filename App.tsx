@@ -1,8 +1,8 @@
 import React from 'react';
-import {ToggleAnimation} from './src/page/ToggleAnimation';
+import {MainScreen} from './src/feature/movies/MainScreen';
 
 const App = () => {
-  return <ToggleAnimation />;
+  return <MainScreen />;
 };
 
 export default App;
