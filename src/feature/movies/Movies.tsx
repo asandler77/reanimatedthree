@@ -26,6 +26,6 @@ export const Movies = (props: Props) => {
 
 const styles = StyleSheet.create({
   movie: {
-    backgroundColor: '#fafad2',
+    // backgroundColor: '#fafad2',
   },
 });
