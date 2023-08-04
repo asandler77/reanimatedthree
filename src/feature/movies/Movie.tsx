@@ -1,5 +1,5 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {MovieModel} from './model';
 
 interface Props {
@@ -9,14 +9,14 @@ interface Props {
 
 export const Movie = (props: Props) => {
   const {movie, onSelectCB} = props;
+  console.log('url====', movie.url);
   const onPress = () => {
     onSelectCB(movie);
   };
   return (
     <View style={styles.movie}>
       <TouchableOpacity onPress={onPress}>
-        <Text style={styles.title}>{movie.name}</Text>
-        <Text style={styles.title}>{movie.score}</Text>
+        <Image style={styles.image} source={{uri: movie.url}} />
       </TouchableOpacity>
     </View>
   );
@@ -25,11 +25,19 @@ export const Movie = (props: Props) => {
 const styles = StyleSheet.create({
   movie: {
     borderWidth: 1,
-    height: 80,
-    width: 250,
+    height: 180,
+    width: 150,
     alignItems: 'center',
+    marginHorizontal: 4,
+    // borderRadius: 12,
+    backgroundColor: 'azure',
   },
   title: {
-    fontSize: 30,
+    fontSize: 24,
+  },
+  image: {
+    height: 180,
+    width: 150,
+    borderWidth: 1,
   },
 });

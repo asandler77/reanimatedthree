@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {MovieModel} from './model';
 import {Movie} from './Movie';
 
@@ -12,8 +12,9 @@ export const Movies = (props: Props) => {
   const {movies, onSelectCB} = props;
 
   return (
-    <View>
+    <View style={styles.movie}>
       <FlatList
+
         data={movies}
         renderItem={({item}) => <Movie movie={item} onSelectCB={onSelectCB} />}
         horizontal={true}
@@ -22,3 +23,9 @@ export const Movies = (props: Props) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  movie: {
+    backgroundColor: '#fafad2',
+  },
+});

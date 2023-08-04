@@ -5,10 +5,30 @@ import {MovieOverview} from './MovieOverview';
 import {MovieModel} from './model';
 
 const movies: MovieModel[] = [
-  {id: '1', name: 'Chapaev', score: 4},
-  {id: '2', name: 'Cobra', score: 2},
-  {id: '3', name: 'Commando', score: 1},
-  {id: '4', name: 'Predator', score: 3},
+  {
+    id: '1',
+    name: 'Predator',
+    score: 4,
+    url: 'https://upload.wikimedia.org/wikipedia/en/9/95/Predator_Movie.jpg',
+  },
+  {
+    id: '2',
+    name: 'Rocky',
+    score: 2,
+    url: 'https://upload.wikimedia.org/wikipedia/en/1/18/Rocky_poster.jpg',
+  },
+  {
+    id: '3',
+    name: 'Jurassic park',
+    score: 1,
+    url: 'https://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg',
+  },
+  {
+    id: '4',
+    name: 'Total recall',
+    score: 3,
+    url: 'https://upload.wikimedia.org/wikipedia/en/2/2d/Total_Recall_%281990_film%29_poster.jpg',
+  },
 ];
 
 export const MainScreen = () => {

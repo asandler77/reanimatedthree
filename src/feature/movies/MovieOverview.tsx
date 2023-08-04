@@ -21,5 +21,6 @@ export const MovieOverview = (prop: Props) => {
 const styles = StyleSheet.create({
   container: {
     height: height,
+    backgroundColor: '#fafad2',
   },
 });
